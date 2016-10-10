@@ -1,0 +1,6 @@
+title: Dual language
+description: Dual language blog example
+baseurl: ""
+
+markdown: kramdown
+future: true
