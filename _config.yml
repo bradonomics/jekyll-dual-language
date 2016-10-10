@@ -2,5 +2,12 @@ title: Dual language
 description: Dual language blog example
 baseurl: ""
 
+defaults:
+  - scope:
+      path: _posts/es
+      type: posts
+    values:
+      permalink: /es/:categories/:year/:month/:day/:title.html
+
 markdown: kramdown
 future: true
