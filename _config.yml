@@ -1,13 +1,25 @@
 title: Dual language
 description: Dual language blog example
 baseurl: ""
+permalink: /:title/
 
 defaults:
   - scope:
       path: _posts/es
       type: posts
     values:
-      permalink: /es/:categories/:year/:month/:day/:title.html
+      permalink: /es/:title/
 
 markdown: kramdown
 future: true
+
+gems:
+  - jekyll-archives
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  permalinks:
+    categories: '/category/:name/'
+    tags: '/tag/:name/'
