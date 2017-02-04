@@ -1,25 +1,52 @@
-title: Dual language
-description: Dual language blog example
-baseurl: ""
+# Site Settings
+title: Jekyll Dual Language
+title_th: เจคัลล์ สองภาษา
+description: A dual language blog example with pagination for both languages.
+description_th: ตัวอย่างบทความบล็อกสองภาษาแสดงลำดับของหมายเลขหน้า
+url:
+
+# Jekyll Configuration
+encoding: UTF-8
 permalink: /:title/
+paginate_multiple:
+  - paginate: 3
+    paginate_path: '/blog/page:num/'
+    sub_dir: '/en'
+  - paginate: 3
+    paginate_path: '/th/blog/page:num/'
+    sub_dir: '/th'
 
-defaults:
-  - scope:
-      path: _posts/es
-      type: posts
-    values:
-      permalink: /es/:title/
-
+# Markdown Processing
 markdown: kramdown
-future: true
+kramdown:
+  input: GFM
 
+# Sass/SCSS settings
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Collection Defaults
+defaults:
+- scope:
+    type: posts
+  values:
+    layout: post
+- scope:
+    type: pages
+  values:
+    layout: page
+- scope:
+    path: _posts/th
+    type: posts
+  values:
+    permalink: /th/:title/
+
+# File Handling
+include: [th]
+exclude: [lib, config.rb, .sass-cache, Capfile, config, log, Rakefile, Rakefile.rb, tmp, Gemfile, Gemfile.lock, README.md, LICENSE.md, node_modules, gulpfile.js, package.json]
+
+# Plugins
 gems:
-  - jekyll-archives
-
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  permalinks:
-    categories: '/category/:name/'
-    tags: '/tag/:name/'
+  - jekyll-paginate
+  - jekyll-paginate-multiple

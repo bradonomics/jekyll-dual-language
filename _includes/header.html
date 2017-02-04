@@ -1,0 +1,9 @@
+<header class="site-header" itemscope itemtype="http://schema.org/WPHeader">
+
+  <p class="site-title" itemprop="headline">
+    <a href="/{% if page.language == 'th' %}th/{% endif %}">{% if page.language == 'th' %}{{ site.title_th }}{% else %}{{ site.title }}{% endif %}</a>
+  </p>
+
+  {% include navigation.html %}
+
+</header>

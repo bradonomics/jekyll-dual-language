@@ -1,0 +1,28 @@
+article {
+  position: relative;
+  padding-bottom: 1em;
+
+  img {
+    max-width: 100%;
+  }
+
+}
+
+.entry-title {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.entry-meta {
+  font-size: .8em;
+  color: $secondary-color;
+
+  span {
+    display: block;
+  }
+
+  a {
+    color: $secondary-color;
+  }
+
+}

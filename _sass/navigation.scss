@@ -1,0 +1,22 @@
+nav {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  .menu-item {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+
+    &:hover,
+    &.active {
+      border-bottom: 1px solid $primary-color;
+    }
+
+  }
+
+  .menu-item + .menu-item {
+    margin-left: .8em;
+  }
+
+}

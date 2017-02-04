@@ -1,0 +1,58 @@
+---
+title: บล็อก
+language: th
+layout: default
+---
+
+<article class="archive">
+
+  <header class="entry-header">
+    <h1 class="entry-title">{{ page.title }}</h1>
+  </header>
+
+  {% for post in paginator.posts %}
+  <article class="post" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <header class="entry-header">
+    	<h2 itemprop="headline"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+    	<p class="entry-meta">
+    		<time class="entry-time" itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{% include post-time.html %}</time>
+    	</p>
+    </header>
+
+    <div class="entry-content" itemprop="text">
+	    <p>{{ post.content | strip_html | strip | truncate: 440 }}</p>
+    </div>
+
+  </article>
+
+  {% unless forloop.last %}<hr>{% endunless %}
+
+  {% endfor %}
+
+  <!-- Pagination links -->
+  {% if paginator.total_pages > 1 %}
+  <div class="archive-pagination pagination">
+    <ul>
+      {% if paginator.previous_page %}
+        <li><a href="{{ paginator.previous_page_path | replace: '//', '/' }}">&laquo; ก่อนหน้านี้</a></li>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li class="active">{{ page }}</li>
+        {% elsif page == 1 %}
+        <li><a href="/th/blog/">{{ page }}</a></li>
+      {% else %}
+        <li><a href="/th/blog{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}/">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <li><a href="{{ paginator.next_page_path | replace: '//', '/' }}">หน้าถัดไป &raquo;</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  {% endif %}
+
+</article>
