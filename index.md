@@ -3,7 +3,7 @@ title: About
 language: en
 ---
 
-To learn more about dual language blogs with Jekyll, visit the [project page](https://bradonomics.com/).
+To learn more about dual language blogs with Jekyll, visit the [project page](https://bradonomics.com/jekyll-dual-language/).
 
 ## What is Lorem Ipsum?
 
