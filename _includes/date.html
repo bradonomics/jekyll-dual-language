@@ -6,11 +6,7 @@
 
 {% endif %}
 
-{% if page.language != 'th' %}
-
-  {% capture month %}{{ include.date | date: "%B" }}{% endcapture %}
-
-{% else %}
+{% if page.language == 'th' %}
 
   {% assign m = include.date | date: "%-m" %}
   {% case m %}
@@ -39,6 +35,10 @@
     {% when '12' %}
       {% capture month %}ธันวาคม{% endcapture %}
   {% endcase %}
+
+{% else %}
+
+  {% capture month %}{{ include.date | date: "%B" }}{% endcapture %}
 
 {% endif %}
 
